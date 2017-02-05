@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+       <tiles-definitions>
+       	<definition name="template" template="/WEB-INF/view/index.jsp">
+       		<put-attribute name="title" value="Template"/>
+       	</definition>
+       	
+       	<definition name="product" extends="template">
+       		<put-attribute name="title" value="Products Registration"/>
+       		<put-attribute name="bodyContent" value="/WEB-INF/view/products.jsp"/>
+       	</definition>
+       	
+       	<definition name="client" extends="template">
+       		<put-attribute name="title" value="Consignee Registration"/>
+       		<put-attribute name="bodyContent" value="/WEB-INF/view/client.jsp"/>
+       	</definition>
+       	
+       	
+       	
+       	<definition name="viewProducts" extends="template">
+       		<put-attribute name="title" value="View Products"/>
+       		<put-attribute name="bodyContent" value="/WEB-INF/view/viewProducts.jsp"/>
+       	</definition>
+       	
+       	<definition name="viewClients" extends = "template">
+       		<put-attribute name="title" value = "View Consignee Credentials"/>
+       		<put-attribute name="bodyContent" value = "/WEB-INF/view/viewClients.jsp"/>
+       	</definition>
+       	
+       	<definition name="viewPurchases" extends = "template">
+       		<put-attribute name="title" value = "Generate Quotation Credentials"/>
+       		<put-attribute name="bodyContent" value = "/WEB-INF/view/viewPurchases.jsp"/>
+       	</definition>
+       	
+       	
+       	<definition name="quotation" extends = "template">
+       		<put-attribute name="title" value = "View Consignee Credentials"/>
+       		<put-attribute name="bodyContent" value = "/WEB-INF/view/quotation.jsp"/>
+       	</definition>
+       	
+       	
+       	<definition name="purchaseFilesUpload" extends = "template">
+       		<put-attribute name="title" value = "Purchase Order Files"/>
+       		<put-attribute name="bodyContent" value = "/WEB-INF/view/purchaseFileUpload.jsp"/>
+       	</definition>
+       	
+       	<definition name="purchase" extends="template">
+       		<put-attribute name="title" value = "Purchase Orders"/>
+       		<put-attribute name="bodyContent" value = "/WEB-INF/view/purchase.jsp"/>
+       	</definition>
+       	<definition name ="viewQuotations" extends= "template">
+       		<put-attribute name = "title" value = "View Quotations"/>
+       		<put-attribute name = "bodyContent" value = "/WEB-INF/view/viewQuotations.jsp"/>
+       	</definition>
+       	
+       	<definition name ="generateInvoice" extends= "template">
+       		<put-attribute name = "title" value = "Generate Invoice"/>
+       		<put-attribute name = "bodyContent" value = "/WEB-INF/view/generateInvoice.jsp"/>
+       	</definition>
+       	
+       </tiles-definitions>

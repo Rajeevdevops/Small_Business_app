@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        <hibernate-mapping>
+        <class name="com.lws.model.PurchaseModel" table="purchases">
+        	<id name="id" type="integer" >
+        		<generator class="increment"/>
+        	</id>
+        	<property name="date" type="date" not-null="true"/>
+        	<many-to-one name="client" class="com.lws.model.ClientModel" lazy="false" not-null="true" />
+        	<property name="totalAmount" type="integer" not-null="true"/>
+        	<property name="remarks1" not-null="true"/>
+        	<property name="remarks2" not-null="true"  />
+        	 <set name="purchaseItemList" lazy="false" cascade="save-update,delete">
+        	 	<key column="purchaseModelId" not-null="true"/>
+        	 	<one-to-many class="com.lws.model.PurchaseItemModel"/>
+        	 </set>
+        	 
+        	 </class>
+        
+        <class name="com.lws.model.PurchaseItemModel" table="purchaseitems">
+        	<id name="id" type="integer">
+        		<generator class="native"/>
+        	</id>
+        	<many-to-one name="product" class="com.lws.model.ProductModel" lazy="false" not-null="true"/>
+        	<property name="quantity" type="integer" not-null="true"/>
+        	<property name="free" type="integer" not-null="true"/>
+        	<property name="unitRate" type = "float" not-null="true"/>
+        	<property name = "discount" type="integer" not-null="true"  />
+        	<property name="vat" type = "float" not-null="true"/>
+        	<property name="amount" type = "float" not-null="true"/>
+        	<property name = "totalQuantity" type = "integer" not-null="true"/>
+        	<property name="tax" not-null="true"/>
+        	<many-to-one name="model" class="com.lws.model.PurchaseModel" not-null="true" lazy="false"/>
+        	      </class>
+        </hibernate-mapping>

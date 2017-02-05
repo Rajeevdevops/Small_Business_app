@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.lws.model.ClientModel" table="client">
+		<id name="id" type="integer">
+			<generator class="native" />
+		</id>
+		<property name="name" type="string" unique="true" not-null="true" />
+		<property name="address" type="string" not-null="true" />
+		<property name="tinNo" type="string" not-null="true" />
+		<property name="cstNo" type="string" not-null="true" /> 
+		<property name="desc1" type="string" not-null="true" />
+		<property name="desc2" type="string" not-null="true" />
+		<property name="remarks" type="string" not-null="true" />
+		<property name="phoneNumber1" not-null="true"/>
+		<property name="phoneNumber2" not-null="true"/>
+		<property name="email" not-null="true"/>
+		<property name="fax" not-null="true"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.lws.model.InvoiceModel" table="invoice">
+		<id name="id" type="integer">
+			<generator class="increment" />
+		</id>
+		<many-to-one name="client" class="com.lws.model.ClientModel"
+			lazy="false" not-null="true" />
+		<property name="date" type="date" not-null="true" />
+		<property name="totalAmount" type="int" not-null="true" />
+		<property name="totalQuantity" type="int" not-null="true" />
+		<property name="reference" not-null="true" />
+		<property name="phone" not-null="true" />
+		<property name="claimPercentage" not-null="true" type="integer" />
+		<property name="claimAmount" not-null="true" type="float" />
+		<property name = "quotId" not-null="true" type = "integer"/>
+		<set name="quotationItemSet" lazy="false" cascade="save-update, delete">
+			<key column="quotationId" not-null="true"/>
+			<one-to-many class="com.lws.model.InvoiceItemModel"/>
+		</set>
+	</class>
+
+
+	<class name="com.lws.model.InvoiceItemModel" table="invoiceitems">
+		<id name="id" type="integer">
+			<generator class="increment" />
+		</id>
+		<many-to-one name="product" not-null="true"
+			class="com.lws.model.ProductModel" lazy="false" />
+		<property name="quantity" type="integer" not-null="true" />
+		<property name="vat" type="float" not-null="true" />
+		<property name="unitRate" type="float" not-null="true" />
+		<property name="discount" type="integer" not-null="true" />
+		<property name="totalAmount" type="float" not-null="true" />
+		<property name ="tax" type = "string" not-null="true"/>
+		<property name = "availableUnitPrice" type = "float" not-null="true"/>
+		<many-to-one name="invoice" class="com.lws.model.InvoiceModel" lazy="false" not-null="true"/>
+	</class>
+
+</hibernate-mapping>

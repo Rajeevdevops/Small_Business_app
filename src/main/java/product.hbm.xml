@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        <hibernate-mapping>
+         <class name="com.lws.model.ProductModel" table="products">
+         	<id name="id" type="integer">
+         		<generator class="native"/>
+         	</id>
+         	<property name="name" unique="true" not-null="true"/>
+         	<property name="units" type="string" not-null="true"/>
+         	<property name="desc1" type="string" not-null="true"/>
+         	<property name="desc2" type="string" not-null="true"/>
+         	<property name="desc3" type="string" not-null="true"/>
+         	<property name="desc4" type="string" not-null="true"/>
+         	<property name="discount" type="integer" not-null="true"/>
+         	<property name="quantityRate" type="integer" not-null="true"/>
+         	<property name ="quantity" type = "integer"/>
+         </class>
+        </hibernate-mapping>
